@@ -39,7 +39,7 @@
             };
 
             var settings = new TDV.PlayerSettings();
-            
+            settings.set(TDV.PlayerSettings.ACTIVE_VIDEO_ELEMENT, document.getElementById("video_DCC79303_D197_D47B_41C9_556DC56FB1AB"));
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
             settings.set(TDV.PlayerSettings.SCRIPT_URL, 'script.js');
             settings.set(TDV.PlayerSettings.FLASH_EXPRESS_INSTALLER_URL, 'lib/ExpressInstall.swf');
@@ -145,7 +145,7 @@
             var transitionEnd = transitionEndEventName();
             var preloadContainer = document.getElementById('preloadContainer');
 
-            
+            document.getElementById("video_DCC79303_D197_D47B_41C9_556DC56FB1AB").pause();
 
             var transitionEndName = transitionEndEventName();
             if(transitionEndName)
@@ -199,8 +199,10 @@
                 return;
             }
 
-            showPreloader();
-loadTour()
+            playVideo(document.getElementById("video_DCC79303_D197_D47B_41C9_556DC56FB1AB"));
+document.body.addEventListener("click", onBodyClick);
+document.body.addEventListener("touchend", onBodyClick);
+showPreloader()
         }
 
         function playVideo(video) {
@@ -251,14 +253,14 @@ loadTour()
         }
     </script>
     <style type="text/css">
-        html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
-        #viewer { background-color: #FFFFFF; z-index:1; position:absolute; width: 100%; height: 100%; top: 0; }
+        html, body { background-color: #006666;  width: 100%; height: 100%; margin: 0; padding: 0; }
+        #viewer { background-color: #006666; z-index:1; position:absolute; width: 100%; height: 100%; top: 0; }
         #preloadContainer { z-index:2; position:relative; width:100%; height:100%; transition: opacity 1s; -webkit-transition: opacity 1s; -moz-transition: opacity 1s; -o-transition: opacity 1s;}
     </style>
     
 </head>
 <body onload="onLoad()">
-    <div id="preloadContainer" style="background-color:rgba(255,255,255,1)"><div style="z-index: 4; position: absolute; left: 0%; top: 50%; width: 100.00%; height: 10.00%"><div style="text-align:left; color:#000; "><DIV STYLE="text-align:center;"><SPAN STYLE="letter-spacing:0px;color:#777777;font-size:14px;font-family:Arial, Helvetica, sans-serif;">Loading virtual tour. Please wait...</SPAN></DIV><p STYLE="margin:0; line-height:12px;"><BR STYLE="letter-spacing:0px;color:#000000;font-size:12px;font-family:Arial, Helvetica, sans-serif;"/></p></div></div></div>
+    <div id="preloadContainer" style="background-color:rgba(0,102,102,0.79)"><div style="z-index: 4; position: absolute; display: flex; align-items: center; text-align: center; overflow: hidden; right: 23.18%; bottom: 58.55%; width: 24.39%; height: 34.98%"><video id="video_DCC79303_D197_D47B_41C9_556DC56FB1AB" width="100%" height="100%" loop autoplay playsinline webkit-playsinline poster="media/video_DCC79303_D197_D47B_41C9_556DC56FB1AB_poster.jpg" preload="auto"><source src="media/video_DCC79303_D197_D47B_41C9_556DC56FB1AB.mp4" type="video/mp4">Your browser does not support the video tab</video></div><div style="z-index: 5; position: absolute; background-image: url('loading/HTMLImage_DC08F3DD_D195_7B8E_41C6_55CA29635B9F.png'); background-size: contain; background-repeat: no-repeat; background-position: center center; overflow: hidden; right: 0%; bottom: 4.79%; width: 100.00%; height: 44.03%"></div><div style="z-index: 6; position: absolute; background-image: url('loading/HTMLImage_DF8E2566_D18B_DCBA_41AD_EDAB8F4B1456.png'); background-size: contain; background-repeat: no-repeat; background-position: center center; overflow: hidden; right: 51.8%; bottom: 63.5%; width: 23.79%; height: 25.75%"></div><div style="z-index: 7; position: absolute; background-image: url('loading/HTMLImage_C3AEEA17_D18B_349B_41DC_D03FC5F2D9DB.png'); background-size: contain; background-repeat: no-repeat; background-position: center center; overflow: hidden; right: 48.02%; bottom: 44.09%; width: 6.86%; height: 15.74%"></div><div style="z-index: 8; position: absolute; left: 32.4%; top: 38.18%; width: 41.26%; height: 5.35%"><div style="text-align:left; color:#000; "><DIV STYLE="text-align:center;"><SPAN STYLE="letter-spacing:0px;color:#777777;font-size:14px;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#000000;font-size:45px;">Please </SPAN><SPAN STYLE="color:#ff0000;font-size:45px;">CLICK HERE</SPAN><SPAN STYLE="color:#000000;font-size:45px;"> to Load virtual tour.</SPAN></SPAN></DIV></div></div></div>
     <div id="viewer"></div>
 </body>
 </html>
